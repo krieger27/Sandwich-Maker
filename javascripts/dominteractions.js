@@ -7,6 +7,7 @@ let cheese = document.getElementById("cheese");
 let condiments = document.getElementById("condiments");
 let meat = document.getElementById("meat");
 let veggies = document.getElementById("veggies");
+let sandwichMaker= require("./sandwichMaker");
 
 //For submit button
 submit.addEventListener('click', function(){
@@ -14,8 +15,7 @@ submit.addEventListener('click', function(){
 });
 
 menu.addEventListener("click", function(){
-    console.log(event.target.value);
-    console.log(event.target.closest("div").id);
+    sandwichMaker.addIngredient(event.target.closest("div").id, event.target.value);
 });
 
 
