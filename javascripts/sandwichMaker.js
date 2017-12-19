@@ -1,8 +1,12 @@
 "use strict";
 
 require("./dominteractions");
+let bread = require("./bread");
+let total = 0;
 
 
 module.exports.addIngredient = function (id, value){
-    console.log("it's running");
+    total +=bread.addBread.value;
+    console.log(total);
 };
+
