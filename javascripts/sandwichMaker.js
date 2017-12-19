@@ -12,6 +12,7 @@ let sandwich = {
     veggies:[]
 };
 
+//figure out how to make multiple based on ids
 module.exports.addIngredient = function (id, value){
     sandwich[id].push(value);
     // console.log(sandwich);
