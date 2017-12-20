@@ -20,7 +20,6 @@ submit.addEventListener('click', function(){
 // if none is selected the category needs to be cleared out
 //only if something is checked should you be able to add to total
 function clearCheckboxes (div) {
-    console.log("clearCheckboes function is working", div);
     let checkCheckboxes = div.getElementsByClassName(div.id);
     for (let i=0; i<checkCheckboxes.length; i++) {
         checkCheckboxes[i].checked = false;
@@ -29,18 +28,21 @@ function clearCheckboxes (div) {
 
 menu.addEventListener("change", function(){
     let category = event.target.closest("div");
-    sandwichMaker.addIngredient(category.id, event.target.value);
     if(event.target.value ==="none") {
         console.log( "you pressed none");
         clearCheckboxes(category);
+    }
+    if (!event.target.checked)
+        sandwichMaker.removeIngredient(category.id, event.target.value);
+    } else if (event.target.checked) {
+        sandwichMaker.addIngredient(category.id, event.target.value);
     }
 });
 
 
 let sandwichOutput = function (sandwichObject){
     let sandwichString = "";
-    for(let ingredient in sandwichObject) {
-        console.log(sandwichObject[ingredient]);
+    for(let ingredient in sandwichObject) 
         for(let i =0; i <sandwichObject[ingredient].length; i ++){
             sandwichString += `${sandwichObject[ingredient][i]} `;
         }

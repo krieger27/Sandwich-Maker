@@ -62,6 +62,27 @@ module.exports.addIngredient = (id, value) => {
     return total;
 };
 
+module.exports.removeIngredient = (id, value) => {
+    sandwich[id].splice(sandwich[id].indexOf(value), 1);
+    switch (id) {
+        case "bread":
+        total -=bread.addBread(value);
+        break;
+        case "meat":
+        total -=meat.addMeat(value);
+        break;
+        case"cheese":
+        total-=cheese.addCheese(value);
+        break;
+        case "condiments":
+        total -=condiments.addCondiments(value);
+        break;
+        case "veggies":
+        total -= veggies.addVeggies(value);
+    }
+    console.log("sandwich array", sandwich);
+};
+
 module.exports.getTotal = function(){
     return total;
 };
