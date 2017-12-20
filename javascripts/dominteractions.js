@@ -19,10 +19,20 @@ submit.addEventListener('click', function(){
 // when make a selection if none and another option is checked none needs to clear,
 // if none is selected the category needs to be cleared out
 //only if something is checked should you be able to add to total
+function clearCheckboxes (div) {
+    console.log("clearCheckboes function is working", div);
+    let checkCheckboxes = div.getElementsByClassName(div.id);
+    for (let i=0; i<checkCheckboxes.length; i++) {
+        checkCheckboxes[i].checked = false;
+    }
+}
+
 menu.addEventListener("change", function(){
-    sandwichMaker.addIngredient(event.target.closest("div").id, event.target.value);
+    let category = event.target.closest("div");
+    sandwichMaker.addIngredient(category.id, event.target.value);
     if(event.target.value ==="none") {
         console.log( "you pressed none");
+        clearCheckboxes(category);
     }
 });
 
