@@ -44,48 +44,72 @@ module.exports.addIngredient = (id, value) => {
     sandwich[id].push(value);
     switch (id) {
         case "bread":
-        total +=bread.addBread(value);
+        total += bread.getBreadPrice(value);
+        // total +=bread.breadTotal();
         break;
         case "meat":
-        total +=meat.addMeat(value);
+        total +=meat.getMeatPrice(value);
         break;
         case"cheese":
-        total+=cheese.addCheese(value);
+        total+=cheese.getCheesePrice(value);
         break;
         case "condiments":
-        total +=condiments.addCondiments(value);
+        total +=condiments.getCondimentsPrice(value);
         break;
         case "veggies":
-        total += veggies.addVeggies(value);
+        total += veggies.getVeggiesPrice(value);
     }
-    console.log("total", total);
-    return total;
+    return total.toFixed(2);
 };
 
 module.exports.removeIngredient = (id, value) => {
     sandwich[id].splice(sandwich[id].indexOf(value), 1);
     switch (id) {
         case "bread":
-        total -=bread.addBread(value);
+        total -=bread.getBreadPrice(value);
         break;
         case "meat":
-        total -=meat.addMeat(value);
+        total -=meat.getMeatPrice(value);
         break;
         case"cheese":
-        total-=cheese.addCheese(value);
+        total-=cheese.getCheesePrice(value);
         break;
         case "condiments":
-        total -=condiments.addCondiments(value);
+        total -=condiments.getCondimentsPrice(value);
         break;
         case "veggies":
-        total -= veggies.addVeggies(value);
+        total -= veggies.getVeggiesPrice(value);
     }
     console.log("sandwich array", sandwich);
 };
 
 module.exports.getTotal = function(){
-    return total;
+    return total.toFixed(2);
 };
+
+module.exports.clearCategoryTotal =(id, ingredient) => {
+    if (ingredient.checked){
+        switch (id){
+        case "bread":
+        total -= bread.getBreadPrice(ingredient.value).toFixed(2);
+        break;
+        case "meat":
+        total -= meat.getMeatPrice(ingredient.value).toFixed(2);
+        break;
+        case "cheese":
+        total -= cheese.getCheesePrice(ingredient.value).toFixed(2);
+        break;
+        case "condiments":
+        total -= condiments.getCondimentsPrice(ingredient.value).toFixed(2);
+        break;
+        case "veggies":
+        total -= veggies.getVeggiesPrice(ingredient.value).toFixed(2);
+        break;
+    }
+    }
+};
+//     total -= bread.breadTotal();
+// };
 
 module.exports.getSandwich = function(){
     return sandwich;
