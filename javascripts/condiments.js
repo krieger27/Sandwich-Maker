@@ -7,6 +7,6 @@ let condimentsPrices = {
     "none": 0,
 };
 
-module.exports.addCondiments = function(condimentsType){
+module.exports.getCondimentsPrice = function(condimentsType){
     return condimentsPrices[condimentsType];
 };

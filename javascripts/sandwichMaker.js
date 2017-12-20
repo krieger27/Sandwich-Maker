@@ -50,7 +50,7 @@ module.exports.addIngredient = (id, value) => {
         case "meat":
         total +=meat.getMeatPrice(value);
         break;
-        case"cheese":
+        case "cheese":
         total+=cheese.getCheesePrice(value);
         break;
         case "condiments":
@@ -71,7 +71,7 @@ module.exports.removeIngredient = (id, value) => {
         case "meat":
         total -=meat.getMeatPrice(value);
         break;
-        case"cheese":
+        case "cheese":
         total-=cheese.getCheesePrice(value);
         break;
         case "condiments":

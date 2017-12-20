@@ -7,6 +7,6 @@ let cheesePrices = {
     "none": 0,
 };
 
-module.exports.addCheese = function(cheeseType){
+module.exports.getCheesePrice = function(cheeseType){
     return cheesePrices[cheeseType];
 };

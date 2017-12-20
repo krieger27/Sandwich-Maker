@@ -30,20 +30,20 @@ function clearCheckboxes (div) {
 menu.addEventListener("change", function(){
     let category = event.target.closest("div");
     let none = category.getElementsByClassName("none");
-    if(event.target.value ==="none") {
+     if(event.target.value ==="none") {
         console.log( "you pressed none");
         clearCheckboxes(category);
+    } else {
+        none[0].checked=false;
     }
     if (!event.target.checked){
         sandwichMaker.removeIngredient(category.id, event.target.value);
     } else if (event.target.checked) {
         sandwichMaker.addIngredient(category.id, event.target.value);
-        if (none[0].checked) {
-            none[0].checked = false;
-        }
-        console.log(document.querySelector("div.id.input"));
-    }
-});
+        // if (none[0].checked) {
+        //     none[0].checked = false;
+        // }
+}});
 
 
 let sandwichOutput = function (sandwichObject){
