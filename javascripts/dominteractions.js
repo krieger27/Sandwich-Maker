@@ -21,7 +21,11 @@ submit.addEventListener('click', function(){
 //only if something is checked should you be able to add to total
 menu.addEventListener("change", function(){
     sandwichMaker.addIngredient(event.target.closest("div").id, event.target.value);
+    if(event.target.value ==="none") {
+        console.log( "you pressed none");
+    }
 });
+
 
 let sandwichOutput = function (sandwichObject){
     let sandwichString = "";

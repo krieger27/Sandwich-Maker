@@ -19,24 +19,47 @@ let sandwich = {
 
 
 //figure out how to make multiple based on ids
-module.exports.addIngredient = function (id, value){
-    if (id ==="bread") {
-        sandwich[id].push(value);
+// module.exports.addIngredient = function (id, value){
+//     if (id ==="bread") {
+//         sandwich[id].push(value);
+//         total +=bread.addBread(value);
+//     } if (id ==="cheese") {
+//         sandwich[id].push(value);
+//         total += cheese.addCheese(value);
+//     } if (id==="condiments") {
+//         sandwich[id].push(value);
+//         total +=condiments.addCondiments(value);
+//     } if (id==="meat") {
+//         sandwich[id].push(value);
+//         total += meat.addMeat(value);
+//     } if (id==="veggies") {
+//         sandwich[id].push(value);
+//     }
+//     console.log("total", total);
+//      return total;
+// };
+
+//Switch statement --did a way we did every time
+module.exports.addIngredient = (id, value) => {
+    sandwich[id].push(value);
+    switch (id) {
+        case "bread":
         total +=bread.addBread(value);
-    } if (id ==="cheese") {
-        sandwich[id].push(value);
-        total += cheese.addCheese(value);
-    } if (id==="condiments") {
-        sandwich[id].push(value);
-        total +=bread.addBread(value);
-    } if (id==="meat") {
-        sandwich[id].push(value);
-        total += meat.addMeat(value);
-    } if (id==="veggies") {
-        sandwich[id].push(value);
+        break;
+        case "meat":
+        total +=meat.addMeat(value);
+        break;
+        case"cheese":
+        total+=cheese.addCheese(value);
+        break;
+        case "condiments":
+        total +=condiments.addCondiments(value);
+        break;
+        case "veggies":
+        total += veggies.addVeggies(value);
     }
     console.log("total", total);
-     return total;
+    return total;
 };
 
 module.exports.getTotal = function(){
