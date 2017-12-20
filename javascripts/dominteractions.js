@@ -15,6 +15,10 @@ submit.addEventListener('click', function(){
     output.innerHTML= `${sandwichMaker.getTotal()} ${sandwichOutput(sandwichMaker.getSandwich())}`;
 });
 
+//when you select none any checked need to deselect, 
+// when make a selection if none and another option is checked none needs to clear,
+// if none is selected the category needs to be cleared out
+//only if something is checked should you be able to add to total
 menu.addEventListener("change", function(){
     sandwichMaker.addIngredient(event.target.closest("div").id, event.target.value);
 });
