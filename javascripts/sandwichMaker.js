@@ -59,11 +59,13 @@ module.exports.addIngredient = (id, value) => {
         case "veggies":
         total += veggies.getVeggiesPrice(value);
     }
+    console.log(total,"total");
     return total.toFixed(2);
 };
 
 module.exports.removeIngredient = (id, value) => {
     sandwich[id].splice(sandwich[id].indexOf(value), 1);
+    console.log(sandwich, "this works like we think maybe");
     switch (id) {
         case "bread":
         total -=bread.getBreadPrice(value);
@@ -81,6 +83,10 @@ module.exports.removeIngredient = (id, value) => {
         total -= veggies.getVeggiesPrice(value);
     }
     console.log("sandwich array", sandwich);
+};
+
+module.exports.noneClearIngredient = (id) => {
+    sandwich[id]=[];
 };
 
 module.exports.getTotal = function(){

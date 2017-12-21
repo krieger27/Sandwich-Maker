@@ -31,7 +31,7 @@ menu.addEventListener("change", function(){
     let category = event.target.closest("div");
     let none = category.getElementsByClassName("none");
      if(event.target.value ==="none") {
-        console.log( "you pressed none");
+        sandwichMaker.noneClearIngredient(category.id);
         clearCheckboxes(category);
     } else {
         none[0].checked=false;
